@@ -1,0 +1,80 @@
+@import './headerGroups/tender.scss';
+@import './headerGroups/search.scss';
+@import './headerGroups/abbicon.scss';
+
+
+// --------------------HEADER--------------------------------
+
+.header {
+
+    @mixin headerDefault {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        position: fixed;
+        transition: 300ms;
+        left: 0;
+        display: flex;
+        align-items: center;
+        
+    }
+
+    .header-top-back {
+        @include headerDefault;
+        height: 60px;
+        background-color: rgba(224, 226, 233, 0.288);
+        top: 0px;
+        z-index: 11;
+
+        .my-container {
+            .header-top {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+    }
+
+    .header-main {
+        @include headerDefault;
+        height: 60px;
+        background-color: rgb(110, 77, 37);
+    }
+    .header-bottom {
+        @include headerDefault;
+        background-color: rgb(53, 33, 9);
+    }
+}
+
+// ------------------------HEADER-DEFAULT-----------------
+
+.header-default {
+    .header-main {
+        top: 60px; 
+        z-index: 10;
+    }
+
+    .header-bottom {
+        height: 60px;
+        top: 120px;
+        z-index: 10;
+    }  
+}
+
+// ---------------HEADER-SCROLL------------------------------
+
+.header-scroll {
+    .header-main {
+      
+        top: 0px;
+        z-index: 11;
+    }
+
+    .header-bottom {
+        height: 50px;
+        top: 60px;
+        z-index: 10;
+    }
+
+  
+}

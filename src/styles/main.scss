@@ -1,0 +1,27 @@
+@import './components/header.scss';
+
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style-type: none;
+    user-select: none;
+}
+
+.my-container {
+    width: 90%;
+    margin: auto;
+    @media screen and (max-width: 1000px) {
+        & {
+            width: 95% ;
+            margin: auto;
+        }
+        
+    }
+ 
+}
+
+.display-none {
+    display: none !important;
+}

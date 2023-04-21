@@ -1,0 +1,126 @@
+
+
+.search {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+
+    & > * {
+        margin-left: 20px;
+        cursor: pointer;
+
+        &:first-child {
+            font-size: 12px;
+        }
+    }
+
+    // axtaris stilleri
+
+    .search-menu {
+
+        position: relative;
+        z-index: 12 !important;
+
+     
+    }
+
+ 
+
+   
+
+// dil stilleri 
+    .language {
+        position: relative;
+        z-index: 12;
+
+        .change-language {
+
+            position: relative;
+            .fa-chevron-down {
+                transition: 500ms;
+            }
+
+            .rotated-icon {
+               
+                transform:rotateZ(180deg);
+            }
+            .protrusion {
+                width: 20px;
+                height: 20px;
+                background-color: rgb(255, 255, 255);
+                position: absolute;
+                bottom: -40px;
+                right: 20px;
+                transform: rotateZ(45deg);
+            }
+
+            .change-language-cover {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+            }
+
+        }
+
+
+
+        .other-language {
+            width: 150px;
+            background-color: white;
+            position: absolute;
+            z-index: 12;
+            top: 50px;
+            right: 0px;
+
+            &>div{
+
+                width: 100%;
+                padding: 10px;
+                display: flex;
+                align-items: center;
+
+                &> img {
+                    height: 30px;
+                }
+
+                &:hover {
+                    background-color: bisque;
+                }
+
+            }
+
+        
+        }
+    }
+}
+
+
+.search-content-back {
+
+    position: fixed;
+    width: 100%;
+    height: 150px;
+    left: 0;
+    top: 60px;
+    z-index: 100;
+    background-color: white;
+    display: flex;
+    align-items: center;
+
+    .my-container {
+      
+        .search-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 30px;
+
+            i {
+                cursor: pointer;
+            }
+        }
+    }
+}
