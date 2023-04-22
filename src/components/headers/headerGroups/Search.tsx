@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import {useSelector} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
 import { selectScrollTop } from '../../../screenSlice'
+import { showSearchBar } from '../../../slices/searchSlice'
+import { selectSearcBar } from '../../../slices/searchSlice'
 import flagEn from '../../../icons/flag-uk.svg'
 import flagRu from '../../../icons/flag-ru.svg'
 
 const Search = () => {
 
   const scrollTop = useSelector(selectScrollTop)
+  const dispatch = useDispatch()
+  const searchBar = useSelector(selectSearcBar)
 
   const [changeLanguage, setChangeLanguage] = useState(false)
-  const [searchShow, setSearchShow] = useState(false)
 
   // scrollda dil penceresi baglansin deye
   useEffect(()=>{
@@ -36,7 +39,7 @@ document.body.addEventListener('click', (e:any) => {
   return (
     <>
       <ul  className='search'>
-        <li  onClick={()=>setSearchShow(!searchShow)} className='search-menu'>
+        <li  onClick={()=>dispatch(showSearchBar(!searchBar))} className='search-menu'>
         <i className="fa-solid fa-magnifying-glass"></i> &nbsp; 
         <span>Axtarış</span>
         
@@ -55,7 +58,7 @@ document.body.addEventListener('click', (e:any) => {
            <img src={flagEn}alt="" /> &nbsp;
             <span> EN</span>
             </div>
-          <div  onClick={()=>console.log('clicked')}>
+          <div>
           <img src={flagRu}alt="" />&nbsp;
             <span>RU</span>
             </div>
@@ -68,14 +71,7 @@ document.body.addEventListener('click', (e:any) => {
             
         
       </ul>
-      <div className={searchShow? 'search-content-back' : 'display-none'}>
-        <div className="my-container">
-        <div className='search-content'>
-        <input type="text" placeholder='Axtar'/>
-        <i onClick={()=>setSearchShow(false)} className="fa-solid fa-xmark"></i>
-        </div>
-        </div>
-      </div>
+   
     </>
       
   )

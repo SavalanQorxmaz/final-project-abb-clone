@@ -35,26 +35,126 @@
         }
     }
 
-    .header-main {
-        @include headerDefault;
-        height: 60px;
-        background-color: rgb(110, 77, 37);
+  .header-main-back {
+    @include headerDefault;
+    background-color: white;
+    height: 60px;
+
+    .my-container {
+
+        .header-main {
+            display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .header-main-left {
+                    display: flex;
+                    align-items: center;
+
+                    & > * {
+                        color: rgb(54, 51, 51);
+                        &:hover {
+                            color: black;
+                        }
+                    }
+
+                }
+                .header-main-right {
+                    display: flex
+                }
+        }
     }
-    .header-bottom {
+  }
+    .header-bottom-back {
         @include headerDefault;
-        background-color: rgb(53, 33, 9);
+        background-color: rgb(255, 255, 255);
+
+        .my-container {
+
+            .header-bottom {
+
+                .bottom-tab {
+                    display: flex;
+                    position: relative;
+                    li {
+                      
+                       overflow: hidden;
+                       .bottom-tab-link {
+                        border: 2px solid rgb(255, 255, 255);
+                        transition: 200ms;
+                           padding: 10px;
+                           font-size: 12px;
+                           height: 100%;
+                       }
+                    
+                      
+                             .bottom-tab-content {
+                     
+                        display: none;
+                        }
+
+                   
+                    
+
+                    &:hover {
+                       
+                        .bottom-tab-link {
+                            border-bottom: 2px solid rgb(0, 0, 0);
+                            cursor: pointer;
+                        }
+                        .bottom-tab-content {
+                            display: grid;
+                            grid-template-columns: repeat(2, 1fr);
+                            grid-template-areas: 'first first';
+                            gap: 10px;
+                            background-color: white;
+                            position: fixed;
+                            padding: 20px;
+                            width: 100%;
+                            left: 0;
+                            border-top: 1px solid rgba(77, 75, 75, 0.199);
+
+                            .bottom-tab-content-left {
+                                display: grid;
+                                grid-template-columns: auto auto;
+                                gap: 10px;
+                                align-content: flex-start;
+                                font-weight: 600;
+                                font-size: 18px;
+
+                            }
+                            .bottom-tab-content-right {
+                                display: grid;
+                                grid-template-columns: 60% 40%;
+                                gap: 10px;
+
+                            }
+                        }
+
+                       
+                 
+                        }
+                }
+
+
+         
+
+                }
+
+            }
+        }
     }
 }
 
 // ------------------------HEADER-DEFAULT-----------------
 
 .header-default {
-    .header-main {
+    .header-main-back {
         top: 60px; 
         z-index: 10;
     }
 
-    .header-bottom {
+    .header-bottom-back {
         height: 60px;
         top: 120px;
         z-index: 10;
@@ -64,13 +164,13 @@
 // ---------------HEADER-SCROLL------------------------------
 
 .header-scroll {
-    .header-main {
+    .header-main-back {
       
         top: 0px;
         z-index: 11;
     }
 
-    .header-bottom {
+    .header-bottom-back {
         height: 50px;
         top: 60px;
         z-index: 10;

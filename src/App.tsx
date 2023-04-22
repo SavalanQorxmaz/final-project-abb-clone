@@ -2,6 +2,7 @@ import {Routes, Route} from 'react-router-dom'
 import {useDispatch} from 'react-redux'
 import { screenW, scrollTop} from './screenSlice';
 import Header from './components/Header';
+import SearchBar from './components/SearchBar';
 import Ferdi from './pages/mainHeaderPages/Ferdi';
 import Korporotiv from './pages/mainHeaderPages/Korporotiv';
 import Kob from './pages/mainHeaderPages/Kob';
@@ -27,6 +28,7 @@ dispatch(scrollTop(document.documentElement.scrollTop))
     <div className="App">
   
 <Header/>
+<SearchBar/>
   <Routes>
     
     <Route path='/' element = {<Ferdi/>}/>
