@@ -1,0 +1,53 @@
+
+  .mobile-client-type {
+    position: relative;
+    z-index: 16;
+    margin-left: 20px;
+    
+    &:hover {
+        cursor: pointer;
+    }
+    
+    @mixin all-types {
+        padding: 10px;
+        
+    }
+
+    .mobile-client-type-selected {
+        @include all-types;
+        
+    }
+
+    .mobile-client-type-others {
+        position: absolute;
+        top: 50px;
+        background-color: white;
+        width: 150px;
+        
+        & > * {
+            @include all-types;
+            &:hover {
+                background-color: rgb(91, 109, 109);
+            }
+        }
+
+        .mobile-client-type-others-selected {
+            background-color: rgba(160, 157, 206, 0.822);
+        }
+
+   
+    }
+
+    .mobile-client-type-cover {
+
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+       }
+
+   
+
+
+}

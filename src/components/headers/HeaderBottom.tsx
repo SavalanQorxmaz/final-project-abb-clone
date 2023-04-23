@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom'
 import {useSelector} from 'react-redux'
 import { selectScreenW } from '../../screenSlice'
 import Credit from './headerGroups/Credit'
-import abbIcon from '../../icons/logo.svg'
 import creditImg from '../../icons/Kredit_sub_iba.png'
 import ipotecaImg from '../../icons/ipoteka-02.png'
 import electronImg from '../../icons/randevu_iba_yeni_site.jpg'
@@ -14,9 +13,9 @@ const HeaderBottom = () => {
   const screenW = useSelector(selectScreenW)
   return (
     <div className='header-bottom-back'>
+     
       <div className='my-container'>
       <div className='header-bottom'>
-      {screenW === 'web' ? <>
         <ul className='bottom-tab'>
           <li>
             <div className='bottom-tab-link'>Kreditlər</div>
@@ -217,9 +216,10 @@ const HeaderBottom = () => {
             </div>
             </li>
         </ul>
-      </> : <Link to={'/'}><img src={abbIcon} alt="" /></Link>}
-    </div>
+        </div>
       </div>
+      
+   
     </div>
   )
 }

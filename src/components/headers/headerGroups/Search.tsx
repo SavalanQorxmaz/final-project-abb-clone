@@ -54,11 +54,11 @@ document.body.addEventListener('click', (e:any) => {
             <div  onClick={changeLanguageF}   className='change-language-cover'></div>
        </div>
           <div className={changeLanguage ? 'other-language ' : ' display-none'}>
-          <div onClick={()=>console.log('clicked')}>
+          <div onClick={()=>console.log('en')}>
            <img src={flagEn}alt="" /> &nbsp;
             <span> EN</span>
             </div>
-          <div>
+          <div onClick={()=>console.log('ru')}>
           <img src={flagRu}alt="" />&nbsp;
             <span>RU</span>
             </div>

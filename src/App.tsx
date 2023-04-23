@@ -7,6 +7,7 @@ import Ferdi from './pages/mainHeaderPages/Ferdi';
 import Korporotiv from './pages/mainHeaderPages/Korporotiv';
 import Kob from './pages/mainHeaderPages/Kob';
 import InternetBankciliq from './pages/mainHeaderPages/InternetBankciliq';
+import { useEffect } from 'react';
 
 function App() {
 
@@ -20,7 +21,9 @@ window.addEventListener('resize', () => {
 dispatch(scrollTop(document.documentElement.scrollTop))
  })
  
-
+useEffect(()=>{
+  dispatch(screenW(window.innerWidth))
+},[])
 
  
 

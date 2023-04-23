@@ -1,12 +1,14 @@
 @import './headerGroups/tender.scss';
 @import './headerGroups/search.scss';
 @import './headerGroups/abbicon.scss';
+@import './headerGroups/client-type.scss';
 
 
 // --------------------HEADER--------------------------------
 
 .header {
-
+position: fixed;
+z-index: 11;
     @mixin headerDefault {
         display: flex;
         align-items: center;
@@ -22,7 +24,8 @@
     .header-top-back {
         @include headerDefault;
         height: 60px;
-        background-color: rgba(224, 226, 233, 0.288);
+        background-color: rgb(227, 241, 238);
+        // position: relative;
         top: 0px;
         z-index: 11;
 
@@ -54,8 +57,13 @@
                     & > * {
                         color: rgb(54, 51, 51);
                         &:hover {
-                            color: black;
+                            color: blue;
                         }
+
+                    }
+                    
+                    .header-main-left-selected {
+                        color: blue;
                     }
 
                 }
@@ -80,9 +88,9 @@
                       
                        overflow: hidden;
                        .bottom-tab-link {
-                        border: 2px solid rgb(255, 255, 255);
+                        border-bottom: 2px solid rgb(255, 255, 255);
                         transition: 200ms;
-                           padding: 10px;
+                           padding: 7px;
                            font-size: 12px;
                            height: 100%;
                        }
@@ -141,8 +149,12 @@
 
                 }
 
+            
+
             }
         }
+
+
     }
 }
 
@@ -178,3 +190,124 @@
 
   
 }
+
+
+// mobile header
+
+.mobile-header {
+    height: 110px;
+      position: relative;
+      left: 0;
+      width: 100%;
+      z-index: 15;
+      transition: 300ms;
+  
+      @mixin displayMobile {
+  
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+      }
+  
+      .mobile-header-top {
+          background-color: rgb(187, 178, 178);
+          @include displayMobile;
+          position: fixed;
+          top: 0px;
+          width: 100%;
+          z-index: 16;
+          height: 50px;
+          transition: 300ms;
+      }
+  
+      .mobile-header-bottom{
+          background-color: rgb(202, 95, 95);
+          @include displayMobile;
+          position: fixed;
+          top: 50px;
+          width: 100%;
+          z-index: 15;
+          padding: 20px;
+          height: 60px;
+          transition: 300ms;
+          
+       
+      }
+
+}
+
+.mobile-header-default {
+    .mobile-header-top {
+        top: 0px;
+        // transition: 500ms;
+    }
+    .mobile-header-bottom {
+        top: 50px;
+        // transition: 500ms;
+    }
+}
+
+.mobile-header-scroll {
+    .mobile-header-top {
+        top: -110px;
+        // transition: 500ms;
+    }
+    .mobile-header-bottom {
+        top: -60px;
+        // transition: 500ms;
+    }
+}
+  
+  
+.mobile-header-content-hide {
+    animation: content-hide 500ms 0ms ease-in  both;
+        background-color: rgb(107, 63, 6);
+        position: fixed;
+        z-index: 14;
+        height: 100vh;
+        padding-top: 110px;
+  
+
+ 
+
+}
+
+
+
+    .mobile-header-content-show {
+        animation: content-view 500ms 0ms ease-in  both;
+        background-color: rgb(107, 63, 6);
+        position: fixed;
+        z-index: 14;
+        height: 100vh;
+        padding-top: 110px;
+  
+    }
+
+    @keyframes content-view {
+
+        0% {
+            left: 100%;
+            width: 0%;
+        }
+        100% {
+            left: 0%;
+            width: 100%;
+        }
+        
+    }
+    @keyframes content-hide {
+        0% {
+            left: 0%;
+            width: 100%;
+        }
+
+        100% {
+
+            left: 100%;
+            width: 0%;
+        }
+       
+        
+    }
+
