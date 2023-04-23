@@ -1,8 +1,6 @@
-
-
 .tender {
     font-size: 12px;
-    font-family: sans-serif;
+
     ul {
         display: flex;
 
@@ -11,19 +9,25 @@
             // border: 1px solid black;
             margin-right: 10px;
             border-bottom: 2px solid rgba(224, 226, 233, 0.288);
-
+            padding: 5px;
+             & > * {
+                white-space: pre;
+             }
             &:not(:last-child) {
-                
-                padding: 5px;
+
+              
+
                 &>*:hover {
                     border-bottom: 2px solid black;
                 }
             }
+
             &:last-child {
                 border: 2px solid blue;
                 color: blue;
-                padding: 5px;
+                // padding: 5px;
                 border-radius: 15px;
+
                 &:hover {
                     color: white;
                     background-color: blue;
@@ -31,4 +35,44 @@
             }
         }
     }
+}
+
+@media screen and (max-width: 1000px) {
+
+    .tender {
+        position: relative;
+        width: 100%;
+        padding: 10px;
+        overflow-x: auto;
+        
+
+        ul {
+            li,
+            li:last-child {
+                font-size: 14px;
+                background-color: rgb(243, 237, 237);
+                // border-bottom: 2px solid rgba(224, 226, 233, 0.288);
+                color: rgb(75, 71, 71);
+                border: 0px;
+                border-radius: 0px;
+                padding: 10px;
+
+                &>* {
+                    text-align: center;
+                    line-height: 30px;
+                    white-space: pre;
+                }
+
+                &:hover {
+                    background-color: rgb(243, 237, 237);
+                    &>* {
+                        border-bottom: 2px solid black;
+                        color: black;
+                    }
+                }
+
+            }
+        }
+    }
+
 }

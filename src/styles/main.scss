@@ -26,3 +26,27 @@
 .display-none {
     display: none !important;
 }
+
+
+
+.default-icon {
+    transition: 500ms;      
+
+}
+
+.rotated-icon {
+         transition: 500ms;      
+    transform:rotateZ(180deg);
+}
+
+
+.height-0 {
+    height: 0;
+    overflow: hidden;
+    transition: 500ms ease-out;
+}
+
+// .height-auto {
+//     height: auto;
+//     transition: 500ms ease-out;
+// }

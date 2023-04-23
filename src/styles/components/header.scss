@@ -24,7 +24,7 @@ z-index: 11;
     .header-top-back {
         @include headerDefault;
         height: 60px;
-        background-color: rgb(227, 241, 238);
+        background-color: rgb(246, 248, 252);
         // position: relative;
         top: 0px;
         z-index: 11;
@@ -93,6 +93,7 @@ z-index: 11;
                            padding: 7px;
                            font-size: 12px;
                            height: 100%;
+                           white-space: pre;
                        }
                     
                       
@@ -210,7 +211,7 @@ z-index: 11;
       }
   
       .mobile-header-top {
-          background-color: rgb(187, 178, 178);
+          background-color: rgb(238, 238, 245);
           @include displayMobile;
           position: fixed;
           top: 0px;
@@ -218,18 +219,20 @@ z-index: 11;
           z-index: 16;
           height: 50px;
           transition: 300ms;
+          padding: 0px 10px;
       }
   
       .mobile-header-bottom{
-          background-color: rgb(202, 95, 95);
+          background-color: rgb(255, 255, 255);
           @include displayMobile;
           position: fixed;
           top: 50px;
           width: 100%;
           z-index: 15;
-          padding: 20px;
+          padding: 0px 10px;
           height: 60px;
           transition: 300ms;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.116);
           
        
       }
@@ -258,10 +261,71 @@ z-index: 11;
     }
 }
   
+
+.mobile-header-content-show {
+    animation: content-view 300ms 0ms ease-out  both;
+    // background-color: rgb(107, 63, 6);
+    position: fixed;
+    z-index: 14;
+    height: 100vh;
+    padding-top: 110px;
+   overflow-y: auto;
+
+    .mobile-header-content-ibanking {
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+        background-color: blue;
+        color: white;
+        position: relative;
+    }
+
+    .mobile-header-content-tab {
+        position: relative;
+        background-color: white;
+
+        @mixin tabDesign {
+            padding: 10px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+
+        }
+
+        .mobile-header-content-tab-item {
+            border: 1px solid rgba(0, 0, 0, 0.178);
+            position: relative;
+
+            div {
+              @include tabDesign ;
+              position: sticky;
+              &:hover {
+                background-color: rgba(65, 2, 2, 0.349)
+            } 
+            }
+
+            ul {
+               
+               
+                li {
+                    @include tabDesign;
+                    padding-left: 30px;
+                    font-size: 12px;
+
+                    &:hover {
+                        background-color: rgba(5, 99, 99, 0.397)
+                    }
+                }
+            }
+        };
+    }
+
+}
   
 .mobile-header-content-hide {
-    animation: content-hide 500ms 0ms ease-in  both;
-        background-color: rgb(107, 63, 6);
+    animation: content-hide 300ms 0ms ease-out  both;
         position: fixed;
         z-index: 14;
         height: 100vh;
@@ -274,15 +338,6 @@ z-index: 11;
 
 
 
-    .mobile-header-content-show {
-        animation: content-view 500ms 0ms ease-in  both;
-        background-color: rgb(107, 63, 6);
-        position: fixed;
-        z-index: 14;
-        height: 100vh;
-        padding-top: 110px;
-  
-    }
 
     @keyframes content-view {
 
@@ -310,4 +365,6 @@ z-index: 11;
        
         
     }
+
+
 

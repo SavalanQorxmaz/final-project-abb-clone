@@ -80,8 +80,9 @@ const showClientTypesF = () => {
   </div> : 
   <>
   <div className='mobile-client-type'>
-    <div className='mobile-client-type-selected'>{clientTypeSelected} &nbsp; <i className= {true ? "fa-solid fa-chevron-down rotated-icon" : "fa-solid fa-chevron-down"} ></i></div>
+    <div className='mobile-client-type-selected'>{clientTypeSelected} &nbsp; <i className= {showClientTypes ? "fa-solid fa-chevron-down rotated-icon" : "fa-solid fa-chevron-down default-icon"} ></i></div>
     <div className={showClientTypes? 'mobile-client-type-others' : 'mobile-client-type-others display-none'}>
+      <div className='mobile-client-type-others-protrusion'></div>
       <div onClick={()=>{
         dispatch(selectedLink('ferdi'))
         }} 

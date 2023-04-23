@@ -7,8 +7,9 @@
     z-index: 10;
 
     & > * {
-        margin-left: 20px;
+        margin-left: 15px;
         cursor: pointer;
+        white-space: pre;
 
         &:first-child {
             font-size: 12px;
@@ -41,10 +42,7 @@
                 transition: 500ms;
             }
 
-            .rotated-icon {
-               
-                transform:rotateZ(180deg);
-            }
+            
             .protrusion {
                 width: 20px;
                 height: 20px;
@@ -53,6 +51,7 @@
                 bottom: -40px;
                 right: 20px;
                 transform: rotateZ(45deg);
+                box-shadow: 0px 0px 10px rgba(10, 0, 0, 0.466);
             }
 
             .change-language-cover {
@@ -74,6 +73,8 @@
             z-index: 12;
             top: 50px;
             right: 0px;
+            
+            box-shadow: 0px 0px 10px rgba(10, 0, 0, 0.466);
 
             &>div{
 

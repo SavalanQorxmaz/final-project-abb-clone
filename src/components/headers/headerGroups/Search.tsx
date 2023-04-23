@@ -48,7 +48,7 @@ document.body.addEventListener('click', (e:any) => {
         <li  className='language'>
        <div className='change-language'>
        <span className='selected-language'>AZ</span> &nbsp; 
-            <i className= {changeLanguage ? "fa-solid fa-chevron-down rotated-icon" : "fa-solid fa-chevron-down"} ></i>
+            <i className= {changeLanguage ? "fa-solid fa-chevron-down rotated-icon" : "fa-solid fa-chevron-down default-icon"} ></i>
             
             <div className={changeLanguage ? 'protrusion' : 'display-none'}></div>
             <div  onClick={changeLanguageF}   className='change-language-cover'></div>
