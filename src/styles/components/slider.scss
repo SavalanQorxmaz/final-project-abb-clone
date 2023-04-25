@@ -1,0 +1,57 @@
+
+
+.my-slider {
+    position: relative;
+    width: 300px;
+    height: 500px;
+    // display: flex;
+    border: 2px solid rgb(4, 80, 29);
+    margin: auto;
+    
+    // overflow: hidden;
+
+    @mixin slideDefault {
+
+        top: 0;
+        height: 100%;
+        // position: relative
+        position: absolute
+
+    }
+
+    .current-slide {
+        @include slideDefault;
+        min-width: 100%;
+    }
+
+    .current-to-previous-slide {
+@include slideDefault;
+        right: -20px;
+        width: 100%;
+        transition: 1s;
+
+    }
+
+    .current-to-next-slide {
+        @include slideDefault;
+        left: 0;
+        width: 0;
+        transition: 1s;
+
+    }
+
+    .previous-to-current-slide {
+        @include slideDefault;
+        right: 0;
+        width: 0;
+        transition: 1s;
+    }
+
+    .next-to-current-slide {
+        @include slideDefault;
+        left: -20px;
+        width: 100%;
+        transition: 1s;
+
+    }
+}
