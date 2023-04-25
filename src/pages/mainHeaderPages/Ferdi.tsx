@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import {useSelector} from 'react-redux'
 import { selectScreenW, selectScrollTop } from '../../screenSlice'
-import { sliderClasses } from '@mui/material'
 
 const Ferdi = () => {
 
@@ -18,67 +17,58 @@ useEffect(()=>{
   .then(res=>res.data)
   .then(res=>{
     setSliderImg(res)
+    console.log(res)
     return res
   })
   // .then(res=>console.log(res))
 },[])
 
+const [currentSlideIndex, setCurrentSlideIndex] = useState(1)
+
+const [currentSlide, setCurrentSlide] = useState(sliderImg[currentSlideIndex])
+const [nextSlide, setNextSlide] = useState(sliderImg[currentSlideIndex + 1])
+const [previousSlide, setPreviousSlide] = useState(sliderImg[currentSlideIndex - 1])
 
 
-const [slider, setSlider] = useState({
 
-  previousSlide: '',
-  currentSlide: '',
-  nextSlide: '',
-})
+
+
+
+
+
 
 const [slideClass, setSlideClass] = useState({
   
-  previousSlideClass: 'current-to-previous-slide',
-  currentSlideClass: 'current-slide',
-  nextSlideClass: 'next-to-current-slide',
+  // previousSlideClass: 'current-to-previous-slide',
+  currentSlideClass: 'current-to-previous-slide',
+  nextSlideClass: 'current-slide',
 })
-let ind = 1
 
-// setInterval(()=>{
-
-//   if (ind === sliderImg.length){
-//     ind = 1
-//   }
-
-    // setSlider({
-    //   currentSlide: sliderImg[ind],
-    //   nextSlide: sliderImg[ind + 1],
-    //   previousSlide: sliderImg[ind -1],
-       
-    // })
-
-    // setSlideClass({
-    //   previousSlideClass:'current-to-previous-slide',
-    //   currentSlideClass: 'current-slide',
-    //   nextSlideClass: 'next-to-current-slide',
-    // })
+setInterval(()=>{
+setCurrentSlideIndex(currentSlideIndex + 1)
 
 
+if(currentSlideIndex === 3){
+  setCurrentSlideIndex(1)
+}
   
+}, 10000)
 
-//   ind++
 
-// },3000)
 
 
   return (
   
-<div className='my-slider'>
+<div className='my-slider mt-40'>
 
-  <div className={slideClass.previousSlideClass}>
-    <img src= {slider.previousSlide} alt="" />
+  <div className={'previous-slide'}>
+    <img src= {previousSlide} alt="" />
     </div>
-    <div className={slideClass.currentSlideClass}>
-    <img src={slider.currentSlide} alt="" />
+    <div className={'current-to-previous-slide'}>
+    <img src={sliderImg[currentSlideIndex]} alt="" />
     </div>
-    <div className={slideClass.nextSlideClass}>
-  <img src={slider.nextSlide} alt="" />
+    <div className={'next-to-current-to-previous-slide'}>
+  <img src={sliderImg[currentSlideIndex+1]} alt="" />
     </div>
     
 </div>
