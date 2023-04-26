@@ -26,33 +26,31 @@ useEffect(()=>{
 const [slideDegree, setSlideDegree] = useState(0)
 
 const rotateSliderF = (e:any)=>{
-e.currentTarget.style.transform = `rotateY(${slideDegree}deg)`
+e.currentTarget.style.transform = `rotateY(${144}deg)`
 }
 
-// setInterval(()=> {
+setInterval(()=> {
   
-//   if(slideDegree === 360) {
-//     setSlideDegree(0)
-//   }
-//   else{
-//     setSlideDegree(slideDegree + 72)
-//   }
-// },3000)
+  if(slideDegree === 360) {
+    setSlideDegree(0)
+  }
+  else{
+    setSlideDegree(slideDegree + 72)
+  }
+},8000)
 
   return (
   
 <div className='slider-back' >
-    <div onClick={rotateSliderF} className="slider" style={{transform: `rotateY(${slideDegree}deg)`}} >
-    <div className='slide first-slide' style={{minWidth: `${window.innerWidth}px`,transform: `translateZ(${window.screen.width/2}px)`}}></div>
-    <div className='slide second-slide' style={{minWidth: `${window.innerWidth}px`,transform: `translateZ(${window.innerWidth/2}px) rotateY(72deg)`}}></div>
-    <div className='slide third-slide' style={{minWidth: `${window.innerWidth}px`,transform: `translateZ(${window.innerWidth/2}px) rotateY(144deg)`}}></div>
-    <div className='slide fourth-slide' style={{minWidth: `${window.innerWidth}px`,transform: `translateZ(${window.innerWidth/2}px) rotateY(-144deg)`}}></div>
-    <div className='slide fives-slide' style={{minWidth: `${window.innerWidth}px`,transform: `translateZ(${window.innerWidth/2}px) rotateY(-72deg)`}}></div>
+    <div onClick={rotateSliderF} className="slider"  style={{transform: `rotateY(${slideDegree}deg)`}}>
+    <div className='slide first-slide' ></div>
+    <div className='slide second-slide'></div>
+    <div className='slide third-slide' ></div>
+    <div className='slide fourth-slide'></div>
+    <div className='slide fives-slide' ></div>
     </div>
 
-    <div className='w-full h-48 bg-slate-500 hover:transition-all hover:h-56 hover:duration-500 '>
-      
-    </div>
+     
     
 </div>
  
@@ -60,3 +58,5 @@ e.currentTarget.style.transform = `rotateY(${slideDegree}deg)`
 }
 
 export default Ferdi
+
+// style={{transform: `rotateY(${slideDegree}deg)`}}

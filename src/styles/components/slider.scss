@@ -1,83 +1,128 @@
 
 
-// @mixin slidePosition($first, $second, $third)
-
 .slider-back {
     position: relative;
     margin: auto;
-    width: 100%;
-    height: 500px;
+    width: 500px;
+    height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
     transform-style: preserve-3d;
     backface-visibility: visible;
-    border: 2px solid green;
-    // overflow: hidden;
+    background-color: black;
+    overflow: hidden;
 
     .slider {
-        width: 10px;
         height: 100%;
-      border: 5px solid rgb(190, 11, 11);
         position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
+        // transform: translateZ(-350px);
         transform-style: preserve-3d;
-        // transform: rotate3d(0, 1, 1, 25deg);
+        // transform: rotate3d(1, 1, 0, 25deg);
         backface-visibility: inherit;
-        border: 1px solid grey;
+        // animation: rotate-slide 25s   infinite ease-out both;
+        // animation: second-slider 1s 5s infinite linear both;
         transition: 1s;
-        
 
         .slide {
             position: absolute;
-            // position: relative;
-            // width: 500px;
-            // width: 100%;
+            width: 500px;
             height: 200px;
-            top: 0;
-            left: 0;
-            // background-color: rgba(8, 2, 41, 0.664);
             border: 5px solid rgb(1, 3, 34);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: rgb(253, 250, 250);
             font-size: 2rem;
             backface-visibility: inherit;
+            transition: 1s;
         }
         .first-slide {
-            // transform: rotateY(100vh);
-            // transform:rotateY(90deg);
-            background-color: rgba(127, 255, 212, 0.384);
+            transform: translateZ(350px);
+            background-color: rgb(127, 255, 212);
+            
         }
-        .second-slide {
-            rotateY :72deg  ;
-            // transform: rotateY(162deg);
-            background-color: rgba(255, 228, 196, 0.336);
+        .second-slide { 
+            transform:  rotateY(72deg) translateZ(350px);
+            background-color: rgb(255, 228, 196);
             
         }
         .third-slide {
-            transform:rotateY(144deg) ;
-            // transform:  rotateY(-126deg);
-            background-color: rgba(75, 47, 5, 0.288);
+            transform:  rotateY(144deg) translateZ(350px);
+            background-color: rgb(75, 47, 5);
         }
         .fourth-slide {
-            transform:rotateY(-144deg);
-            // transform:  rotateY(-54deg);
-            background-color: rgba(8, 136, 125, 0.486);
+            transform: rotateY(216deg) translateZ(350px);
+            background-color: rgb(8, 136, 125);
         }
         .fives-slide {
-            transform:rotateY(-72deg);
-            // transform:  rotateY(18deg);
-            background-color: rgba(207, 19, 144, 0.39);
+            transform: rotateY(288deg) translateZ(350px);
+            background-color: rgb(207, 19, 144);
         }
        
     
     }
     
    
+}
+
+
+@keyframes rotate-slide {
+    0% {
+
+        transform: rotateY(0deg);
+    }
+    19% {
+
+        transform: rotateY(0deg);
+    }
+    20% {
+
+        transform: rotateY(72deg);
+    }
+    39% {
+
+        transform: rotateY(72deg);
+    }
+    40% {
+        transform: rotateY(144deg); 
+    }
+    59% {
+
+        transform: rotateY(144deg);
+    }
+    60% {
+
+        transform: rotateY(216deg);
+    }
+    79% {
+
+        transform: rotateY(216deg);
+    }
+    80% {
+
+        transform: rotateY(288deg);
+    }
+    99% {
+
+        transform: rotateY(288deg);
+    }
+
+    100% {
+        transform: rotateY(0deg);
+    }
+ 
+}
+
+@keyframes second-slider {
+   0% {
+    transform: rotateY(72deg);
+   }
+   100% {
+    transform: rotateY(72deg);
+   }
 }
 
 
