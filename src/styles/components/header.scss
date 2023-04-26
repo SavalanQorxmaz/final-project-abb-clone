@@ -7,7 +7,7 @@
 // --------------------HEADER--------------------------------
 
 .header {
-position: fixed;
+position: relative;
 z-index: 11;
     @mixin headerDefault {
         display: flex;
@@ -16,21 +16,20 @@ z-index: 11;
         position: fixed;
         transition: 300ms;
         left: 0;
-        display: flex;
-        align-items: center;
         
     }
 
     .header-top-back {
-        @include headerDefault;
-        height: 60px;
-        background-color: rgb(246, 248, 252);
-        // position: relative;
-        top: 0px;
-        z-index: 11;
+       height: 60px;
 
         .my-container {
             .header-top {
+                @include headerDefault;
+                height: 60px;
+                background-color: rgb(246, 248, 252);
+                // position: relative;
+                top: 0px;
+                z-index: 11;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
@@ -39,13 +38,14 @@ z-index: 11;
     }
 
   .header-main-back {
-    @include headerDefault;
-    background-color: white;
-    height: 60px;
+  height: 60px;
 
     .my-container {
 
         .header-main {
+            @include headerDefault;
+            background-color: white;
+            height: 60px;
             display: flex;
                 align-items: center;
                 justify-content: space-between;
@@ -74,13 +74,13 @@ z-index: 11;
     }
   }
     .header-bottom-back {
-        @include headerDefault;
-        background-color: rgb(255, 255, 255);
+      height: 60px;
 
         .my-container {
 
             .header-bottom {
-
+                @include headerDefault;
+                background-color: rgb(255, 255, 255);
                 .bottom-tab {
                     display: flex;
                     position: relative;
@@ -162,12 +162,12 @@ z-index: 11;
 // ------------------------HEADER-DEFAULT-----------------
 
 .header-default {
-    .header-main-back {
+    .header-main {
         top: 60px; 
         z-index: 10;
     }
 
-    .header-bottom-back {
+    .header-bottom {
         height: 60px;
         top: 120px;
         z-index: 10;
@@ -177,13 +177,13 @@ z-index: 11;
 // ---------------HEADER-SCROLL------------------------------
 
 .header-scroll {
-    .header-main-back {
+    .header-main {
       
         top: 0px;
         z-index: 11;
     }
 
-    .header-bottom-back {
+    .header-bottom {
         height: 50px;
         top: 60px;
         z-index: 10;

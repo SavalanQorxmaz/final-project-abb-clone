@@ -3,10 +3,11 @@
 .my-slider {
     position: relative;
     width: 300px;
-    height: 500px;
-    // display: flex;
+    height: 200px;
+    position: relative;
     border: 2px solid rgb(4, 80, 29);
     margin: auto;
+    margin-top: 50px;
     
     // overflow: hidden;
 
@@ -14,6 +15,7 @@
 
         top: 0;
         height: 100%;
+        width: 100%;
         // position: relative
         position: absolute
 
@@ -21,7 +23,12 @@
 
     .current-slide {
         @include slideDefault;
-        min-width: 100%;
+        left: 0%
+    }
+
+    .next-slide {
+        @include slideDefault;
+        left: 100%
     }
 
     .current-to-previous-slide {
