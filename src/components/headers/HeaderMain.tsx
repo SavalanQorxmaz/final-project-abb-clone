@@ -62,18 +62,18 @@ const showClientTypesF = () => {
     <div className='my-container'>
     <div className='header-main'>
     <div className='header-main-left'>
-    <Link to={'/'}><img src={abbIcon} alt="" style={{height:'50px', marginRight: '40px'}}  /></Link>
-    <Link onClick={()=>{
+    <Link to={'/'}><img src={abbIcon} alt="" style={{height:'50px', marginRight: '40px'}}   /></Link>
+    <Link to = {'/'} onClick={()=>{
       dispatch(selectedLink('ferdi'))
-        }} className= { (selectedL === 'ferdi') ? 'header-main-left-selected' : ''} to={'/'}>Fərdi</Link>&nbsp; &nbsp;/&nbsp;&nbsp;
-    <Link onClick={()=>{
+        }} className= { (selectedL === 'ferdi') ? 'header-main-left-selected' : ''}>Fərdi</Link>&nbsp; &nbsp;/&nbsp;&nbsp;
+    <Link to ={'/korporativ'} onClick={()=>{
       dispatch(selectedLink('korporativ'))
-        }} className= { (selectedL === 'korporativ') ? 'header-main-left-selected' : ''} to={'/'}>Korporativ</Link>&nbsp; &nbsp;/&nbsp;&nbsp;
-    <Link onClick={()=>{
+        }} className= { (selectedL === 'korporativ') ? 'header-main-left-selected' : ''} >Korporativ</Link>&nbsp; &nbsp;/&nbsp;&nbsp;
+    <Link to ={'/kob'} onClick={()=>{
       dispatch(selectedLink('kob'))
-        }} className= { (selectedL === 'kob') ? 'header-main-left-selected' : ''} to={'/'}>KOB</Link>
+        }} className= { (selectedL === 'kob') ? 'header-main-left-selected' : ''} >KOB</Link>
     </div>
-    <Link className='header-main-right' to={'/'}><img  src={internetBankingIcon} alt="" />&nbsp;<span>Internet Bankçılıq</span></Link>
+    <Link className='header-main-right' to={'/internet-bankciliq'}><img  src={internetBankingIcon} alt="" />&nbsp;<span>Internet Bankçılıq</span></Link>
    
     </div>
     </div>

@@ -1,8 +1,12 @@
 import React from 'react'
+import Slider from '../../components/Slider'
 
 const Korporotiv = () => {
   return (
-    <div>Korporotiv</div>
+    <div>
+      
+<Slider/>
+    </div>
   )
 }
 
