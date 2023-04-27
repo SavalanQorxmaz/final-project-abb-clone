@@ -1,13 +1,16 @@
 import Slider from "../../components/Slider"
+import FerdiSadeKecidler from "../pageSections/FerdiSadeKecidler"
 
 const Ferdi = () => {
   return (
   
-    <div>
+    <>
 
       
 <Slider/>
-    </div>
+
+<FerdiSadeKecidler/>
+    </>
       )
 }
 
