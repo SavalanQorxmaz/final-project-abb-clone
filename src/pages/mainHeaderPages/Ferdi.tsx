@@ -1,5 +1,6 @@
 import Slider from "../../components/Slider"
-import FerdiSadeKecidler from "../pageSections/FerdiSadeKecidler"
+import FerdiSadeKecidler from "../pageSections/FerdiSadeKecidler";
+import FerdiKreditKalkulyatoru from "../pageSections/FerdiKreditKalkulyatoru";
 
 const Ferdi = () => {
   return (
@@ -8,8 +9,8 @@ const Ferdi = () => {
 
       
 <Slider/>
-
 <FerdiSadeKecidler/>
+<FerdiKreditKalkulyatoru/>
     </>
       )
 }

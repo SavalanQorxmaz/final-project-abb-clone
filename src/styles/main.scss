@@ -1,5 +1,6 @@
 @import './components/header.scss';
 @import './components/search-bar.scss';
+@import './pages/ferdi.scss';
 
 
 * {
@@ -50,3 +51,28 @@
 //     height: auto;
 //     transition: 500ms ease-out;
 // }
+
+
+.main-container {
+
+    width: 75%;
+    margin: auto;
+    padding: 0px;
+
+    @media screen and (max-width:1200px) {
+
+    width: 95%;
+        
+    }
+
+    @media screen and (max-width:1000px) {
+
+        width: 80%;
+            
+        }
+        @media screen and (max-width:800px) {
+
+            width: 95%;
+                
+            }
+}
