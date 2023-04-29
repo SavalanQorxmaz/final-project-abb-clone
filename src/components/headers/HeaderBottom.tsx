@@ -53,6 +53,7 @@ useEffect(() => {
   screenW === 'web' ? 
   <div className='header-bottom-back'>
      
+  <div className='header-bottom-fixed'>
   <div className='my-container'>
   <div className='header-bottom'>
     <ul className='bottom-tab'>
@@ -257,8 +258,7 @@ useEffect(() => {
     </ul>
     </div>
   </div>
-  
-
+  </div>
 </div>
 
 :

@@ -59,7 +59,8 @@ const showClientTypesF = () => {
  <>
  {
     screenW === 'web' ?  <div className='header-main-back'>
-    <div className='my-container'>
+   <div className='header-main-fixed'>
+   <div className='my-container'>
     <div className='header-main'>
     <div className='header-main-left'>
     <Link to={'/'}><img src={abbIcon} alt="" style={{height:'50px', marginRight: '40px'}}   /></Link>
@@ -77,6 +78,7 @@ const showClientTypesF = () => {
    
     </div>
     </div>
+   </div>
   </div> : 
   <>
   <div className='mobile-client-type'>

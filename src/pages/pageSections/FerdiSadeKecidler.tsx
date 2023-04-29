@@ -9,7 +9,7 @@ const FerdiSadeKecidler = () => {
   
 const screenW = useSelector(selectScreenW)
   return (
-    <div className='main-container'>
+    <div className='my-container'>
     
     <h2 className='text-3xl font-bold mb-5 mt-5'>Sadə keçidlər</h2>
 

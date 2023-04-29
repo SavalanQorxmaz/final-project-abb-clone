@@ -11,7 +11,7 @@ const FerdiKreditKalkulyatoru = () => {
 
     const [amount, setAmount] = useState(1000)
     const [period, setPeriod] = useState(6)
-    const [percentage, setPercentage] = useState(13)
+    const [percentage, setPercentage] = useState(130)
     const [paymentPerMonth, setPaymentPerMonth] = useState(0)
     const [finalAmount, setFinalAmount] = useState(0)
     const getAmountF = (event: Event, newValue: number | number[]) => {

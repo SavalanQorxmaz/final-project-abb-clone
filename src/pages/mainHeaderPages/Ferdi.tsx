@@ -1,6 +1,7 @@
 import Slider from "../../components/Slider"
 import FerdiSadeKecidler from "../pageSections/FerdiSadeKecidler";
 import FerdiKreditKalkulyatoru from "../pageSections/FerdiKreditKalkulyatoru";
+import FerdiTekliflerimiz from "../pageSections/FerdiTekliflerimiz";
 
 const Ferdi = () => {
   return (
@@ -11,6 +12,7 @@ const Ferdi = () => {
 <Slider/>
 <FerdiSadeKecidler/>
 <FerdiKreditKalkulyatoru/>
+<FerdiTekliflerimiz/>
     </>
       )
 }

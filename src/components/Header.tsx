@@ -25,10 +25,10 @@ useEffect(() => {
   if(scrollArray.length > 30){
     setScrollArray((item:number[]):number[]=> item.slice(1))
   }
-  if(( scrollArray[scrollArray.length-1] - scrollArray[0] ) < 15) {
+  if(( scrollArray[scrollArray.length-1] - scrollArray[0] ) < 20) {
     setScrollIsUp(false)
   }
-  else if((scrollArray[0] - scrollArray[scrollArray.length-1]) < 15){
+  else if((scrollArray[0] - scrollArray[scrollArray.length-1]) < 20){
     setScrollIsUp(true)
   }
   if(scrollT <= 50){

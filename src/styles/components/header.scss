@@ -22,30 +22,33 @@ z-index: 11;
     .header-top-back {
        height: 60px;
 
+       .header-top-fixed {
+
+        @include headerDefault;
+        height: 60px;
+        background-color: rgb(246, 248, 252);
+        top: 0px;
+        z-index: 11;
         .my-container {
             .header-top {
-                @include headerDefault;
-                height: 60px;
-                background-color: rgb(246, 248, 252);
-                // position: relative;
-                top: 0px;
-                z-index: 11;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
             }
         }
+       }
     }
 
   .header-main-back {
   height: 60px;
 
+   .header-main-fixed {
+    @include headerDefault;
+    background-color: white;
+    height: 60px;
     .my-container {
 
         .header-main {
-            @include headerDefault;
-            background-color: white;
-            height: 60px;
             display: flex;
                 align-items: center;
                 justify-content: space-between;
@@ -72,15 +75,18 @@ z-index: 11;
                 }
         }
     }
+   }
   }
     .header-bottom-back {
       height: 60px;
 
+     .header-bottom-fixed {
+        
+        @include headerDefault;
+        background-color: rgb(255, 255, 255);
         .my-container {
 
             .header-bottom {
-                @include headerDefault;
-                background-color: rgb(255, 255, 255);
                 .bottom-tab {
                     display: flex;
                     position: relative;
@@ -154,6 +160,7 @@ z-index: 11;
 
             }
         }
+     }
 
 
     }
@@ -162,12 +169,12 @@ z-index: 11;
 // ------------------------HEADER-DEFAULT-----------------
 
 .header-default {
-    .header-main {
+    .header-main-fixed {
         top: 60px; 
         z-index: 10;
     }
 
-    .header-bottom {
+    .header-bottom-fixed {
         height: 60px;
         top: 120px;
         z-index: 10;
@@ -177,13 +184,13 @@ z-index: 11;
 // ---------------HEADER-SCROLL------------------------------
 
 .header-scroll {
-    .header-main {
+    .header-main-fixed {
       
         top: 0px;
         z-index: 11;
     }
 
-    .header-bottom {
+    .header-bottom-fixed {
         height: 50px;
         top: 60px;
         z-index: 10;
