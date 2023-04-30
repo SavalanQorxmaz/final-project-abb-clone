@@ -12,6 +12,10 @@ module.exports = {
     screens: {
       'web': {'min' : '1000px'},
       'mobile': {'min': '0px', 'max': '1000px'}
+    },
+    fontFamily: {
+      'footer-font' : 'Raleway',
+
     }
   },
   plugins: [],

@@ -13,7 +13,7 @@ const FerdiKreditKalkulyatoru = () => {
     const [finalAmount, setFinalAmount] = useState(1072)
     const getAmountF = (event: Event, newValue: number | number[]) => {
         if (typeof newValue === 'number') {
-          setAmount(newValue);
+          setAmount(newValue *10);
         }
       };
       const getPeriodF = (event: Event, newValue: number | number[]) => {
@@ -56,9 +56,9 @@ const FerdiKreditKalkulyatoru = () => {
     <div className='absolute flex items-center  h-full w-full p-1 top-2'>
     <Slider
         size="medium"
-        min={1000}
-        max={30000}
-        defaultValue={1000}
+        min={10}
+        max={3000}
+        defaultValue={100}
         onChange={getAmountF}
         aria-label="Small"
       /> 

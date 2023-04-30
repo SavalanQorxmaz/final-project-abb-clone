@@ -2,6 +2,7 @@ import {Routes, Route} from 'react-router-dom'
 import {useDispatch} from 'react-redux'
 import { screenW, scrollTop} from './screenSlice';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import SearchBar from './components/SearchBar';
 import Ferdi from './pages/mainHeaderPages/Ferdi';
 import Korporotiv from './pages/mainHeaderPages/Korporotiv';
@@ -37,6 +38,8 @@ useEffect(()=>{
     <Route path='/korporativ' element = {<Korporotiv/>}/>
     <Route path='/kob' element = {<Kob/>}/>
    </Routes>
+
+<Footer/>
 
     </div>
   );
