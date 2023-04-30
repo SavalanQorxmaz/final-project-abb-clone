@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const FerdiTekliflerimiz = () => {
   return (
-  <div className='pt-32 pb-32'>
+  <div className='pt-32 pb-32 bg-slate-100 mt-12'>
     <div className='my-container '>
 
 <h2 className='text-4xl font-bold mb-16'>Təkliflərimiz</h2>

@@ -2,18 +2,15 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
-import { purple } from '@mui/material/colors';
-
 import Typography from '@mui/material/Typography';
-import { Value } from 'sass';
 
 const FerdiKreditKalkulyatoru = () => {
 
     const [amount, setAmount] = useState(1000)
-    const [period, setPeriod] = useState(6)
+    const [period, setPeriod] = useState(12)
     const [percentage, setPercentage] = useState(130)
-    const [paymentPerMonth, setPaymentPerMonth] = useState(0)
-    const [finalAmount, setFinalAmount] = useState(0)
+    const [paymentPerMonth, setPaymentPerMonth] = useState(89.32)
+    const [finalAmount, setFinalAmount] = useState(1072)
     const getAmountF = (event: Event, newValue: number | number[]) => {
         if (typeof newValue === 'number') {
           setAmount(newValue);
@@ -31,8 +28,12 @@ const FerdiKreditKalkulyatoru = () => {
       };
 
       useEffect(()=>{
-        setPaymentPerMonth(amount*(percentage/(12000*(1-(1+percentage/12000)**(-period)))))
-        setFinalAmount(period * paymentPerMonth)
+
+
+          setPaymentPerMonth(amount*(percentage/(12000*(1-(1+percentage/12000)**(-period)))))
+          
+          setFinalAmount(period * paymentPerMonth)
+        
       },[amount | period | percentage])
 
 
@@ -55,7 +56,7 @@ const FerdiKreditKalkulyatoru = () => {
     <div className='absolute flex items-center  h-full w-full p-1 top-2'>
     <Slider
         size="medium"
-        min={100}
+        min={1000}
         max={30000}
         defaultValue={1000}
         onChange={getAmountF}

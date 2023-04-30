@@ -2,6 +2,7 @@ import Slider from "../../components/Slider"
 import FerdiSadeKecidler from "../pageSections/FerdiSadeKecidler";
 import FerdiKreditKalkulyatoru from "../pageSections/FerdiKreditKalkulyatoru";
 import FerdiTekliflerimiz from "../pageSections/FerdiTekliflerimiz";
+import FerdiValyutaMezenneleri from "../pageSections/FerdiValyutaMezenneleri";
 
 const Ferdi = () => {
   return (
@@ -13,6 +14,7 @@ const Ferdi = () => {
 <FerdiSadeKecidler/>
 <FerdiKreditKalkulyatoru/>
 <FerdiTekliflerimiz/>
+<FerdiValyutaMezenneleri/>
     </>
       )
 }
