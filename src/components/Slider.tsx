@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { CSSProperties, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import {useSelector} from 'react-redux'
@@ -24,52 +24,36 @@ const Slider = () => {
   },[])
   
   const [slideDegree, setSlideDegree] = useState(0)
+  const [stepCount, setStepCount] = useState(0)
+  const [lastSlideChangeTime, setLastSlideChangeTime] = useState(Date.now)
   
-  const rotateSliderF = (e:any)=>{
-  e.currentTarget.style.transform = `rotateY(${144}deg)`
-  }
-  
-  const [animation, setAnimation] = useState(true)
-  
-  let autoSlide:number
-  const [autoslideState, setAutoSlideState] =  useState(1)
-  
-  
-  const sliderF = ()=> {
     
-    var now;
-    var then = Date.now();
-    var interval = 5000;
-    var delta;
   
-    function autoSlideF(){
-      
-      now = Date.now();
-      delta = now - then;
-  
-      if (delta > interval) {
-        if(slideDegree === -3) {
-          setSlideDegree(0)
-        }
-        else{
-          setSlideDegree(slideDegree - 1)
-        } 
+    function timerF(){
+      if (Date.now() - lastSlideChangeTime > 8000) {
+        setStepCount(stepCount + 1)
+        setLastSlideChangeTime(Date.now)
     }
-    autoSlide = requestAnimationFrame(autoSlideF) 
+    requestAnimationFrame(timerF) 
     }
-    
-    
-    requestAnimationFrame(autoSlideF)
-  
-    
-  }
-  sliderF()
+    requestAnimationFrame(timerF) 
   
   
-  
+ useEffect(()=>{
+   if(stepCount>0){
+    if(slideDegree === -3) {
+        setSlideDegree(0)
+      }
+      else{
+        setSlideDegree(slideDegree - 1)
+      }
+   } 
+    console.log(lastSlideChangeTime)
+ },[stepCount])
   
   const frameWidth = document.getElementById('sliderFrame')?.clientWidth
-  const sliderFrameStyle:any = {
+
+  const sliderFrameStyle:CSSProperties = {
     display: 'flex',
      justifyContent: 'center',
       alignItems: 'center', 
@@ -84,7 +68,7 @@ const Slider = () => {
     overflow: 'hidden',
       }
   
-  const sliderStyle:any = {
+  const sliderStyle:CSSProperties = {
   
     display: 'flex', 
     justifyContent: 'center', 
@@ -98,11 +82,43 @@ const Slider = () => {
     width: '10px',
   
   }
+
+  const coverStyle:CSSProperties = {
+  
+    display: 'flex', 
+    justifyContent: 'center', 
+    alignItems: 'flex-end',
+    paddingBottom: '5%', 
+    position: 'absolute', 
+    top: '0px',
+    left: '0px',
+    height: '100%', 
+    width: '100%', 
+  
+  }
+
+
+
+  const coverButtonStyleF = (slideNumber:number)=> {
+
+
+    const coverButtonStyle:CSSProperties = {
+        backgroundColor: slideNumber===slideDegree? 'rgba(0,0,0,0.8': 'rgba(200,200,200,0.8',
+        height: '20px', 
+        width: '20px',
+        marginRight: '10px',
+        borderRadius: '50%',
+        cursor: 'pointer'
+    
+      }
+
+      return coverButtonStyle
+  }
   
   const slideStyleF = (degree:number, color:string) => {
-    let translateWidth:number | undefined;
+    let translateTo:number | undefined;
     if(frameWidth){
-      translateWidth  = Math.ceil(frameWidth * 57.3)
+      translateTo  = Math.ceil(frameWidth * 57.3)
     }
     const slideStyle:any = {
       position: 'absolute',
@@ -115,7 +131,7 @@ const Slider = () => {
       width: `${frameWidth}px`,
       height: '100%',
       backgroundColor: `${color}`,
-      transform: ` rotateY(${degree}deg) translateZ(${translateWidth}px)`,
+      transform: ` rotateY(${degree}deg) translateZ(${translateTo}px)`,
       
     }
   
@@ -127,7 +143,6 @@ const Slider = () => {
     return (
     
   <>
-  
   
   <div id='sliderFrame'  style={sliderFrameStyle}>
   
@@ -167,7 +182,28 @@ const Slider = () => {
    
   
   </div>
-  
+  <div style={coverStyle}>
+    <div onClick={()=>{
+        setLastSlideChangeTime(Date.now())
+        setSlideDegree(0)
+
+    }} style={coverButtonStyleF(0)}></div>
+    <div onClick={()=>{
+        setLastSlideChangeTime(Date.now())
+        setSlideDegree(-1)
+
+    }} style={coverButtonStyleF(-1)}></div>
+    <div onClick={()=>{
+        setLastSlideChangeTime(Date.now())
+        setSlideDegree(-2)
+
+    }} style={coverButtonStyleF(-2)}></div>
+    <div onClick={()=>{
+        setLastSlideChangeTime(Date.now())
+        setSlideDegree(-3)
+
+    }} style={coverButtonStyleF(-3)}></div>
+  </div>
   
   </div>
   

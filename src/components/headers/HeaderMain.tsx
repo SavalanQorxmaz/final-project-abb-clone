@@ -94,12 +94,12 @@ const showClientTypesF = () => {
         dispatch(selectedLink('korporativ'))
         }} 
         className = {(selectedL === 'korporativ') ? 'mobile-client-type-others-selected' : ''}>
-          <Link to={'/'}>Korporativ</Link></div>
+          <Link to={'/korporativ'}>Korporativ</Link></div>
       <div onClick={()=>{
         dispatch(selectedLink('kob'))
         }} 
         className = {(selectedL === 'kob') ? 'mobile-client-type-others-selected' : ''}>
-          <Link to={'/'}>KOB</Link></div>
+          <Link to={'/kob'}>KOB</Link></div>
     </div>
     <div  onClick={showClientTypesF} className='mobile-client-type-cover'></div>
   </div>

@@ -22,13 +22,13 @@ const [scrollArray, setScrollArray] = useState<number[]>([])
 useEffect(() => {
  
  setScrollArray((item:number[]):number[]=> item.concat(scrollT))
-  if(scrollArray.length > 30){
+  if(scrollArray.length > 20){
     setScrollArray((item:number[]):number[]=> item.slice(1))
   }
-  if(( scrollArray[scrollArray.length-1] - scrollArray[0] ) < 20) {
+  if(( scrollArray[scrollArray.length-1] - scrollArray[0] ) < 5) {
     setScrollIsUp(false)
   }
-  else if((scrollArray[0] - scrollArray[scrollArray.length-1]) < 20){
+  else if((scrollArray[0] - scrollArray[scrollArray.length-1]) < 5){
     setScrollIsUp(true)
   }
   if(scrollT <= 50){
