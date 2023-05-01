@@ -48,7 +48,6 @@ const Slider = () => {
         setSlideDegree(slideDegree - 1)
       }
    } 
-    console.log(lastSlideChangeTime)
  },[stepCount])
   
   const frameWidth = document.getElementById('sliderFrame')?.clientWidth
