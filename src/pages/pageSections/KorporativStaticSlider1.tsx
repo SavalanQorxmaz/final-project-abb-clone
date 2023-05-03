@@ -9,35 +9,41 @@ const KorporativStaticSlider1 = () => {
 
    const screenW = useSelector(selectScreenW)
 
-   const slider = document.querySelector('.items');
-   const [isDown, setIsDown] = useState(false)
-   const [startX, setStartX] = useState(0)
-   const [scrollLeft, setScrollLeft] = useState(0)
+   const slider = document.querySelector('#mobile-slider');
    
-   slider?.addEventListener('mousedown', (e:any) => {
-     setIsDown(true);
-     slider.classList.add('active');
-     setStartX(e.pageX - slider?.offsetLeft);
-     setScrollLeft(slider.scrollLeft);
-   });
-   slider?.addEventListener('mouseleave', () => {
-     setIsDown(false);
-     slider?.classList.remove('active');
-   });
-   slider?.addEventListener('mouseup', () => {
-     setIsDown(false);
-     slider.classList.remove('active');
-   });
-   slider?.addEventListener('mousemove', (e:any) => {
-   if (e){
-      if(!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - slider?.offsetLeft;
-      const walk = (x - startX) * 3; //scroll-fast
-      slider.scrollLeft = scrollLeft - walk;
-      console.log(walk);
-   }
-   });
+   const [isDown, setIsDown] = useState(false)
+
+const [lastPosition, setlastPosition] = useState(0)
+const [mouseDownPoint, setMouseDownPoint] = useState(0)
+const [cursorXCoordinate, setCursorXCoordinate] = useState(0)
+
+
+const mouseDown = (e:any) => {
+   setIsDown(true)
+   
+   setCursorXCoordinate(e.pageX)
+}
+
+const mouseMove = (e:any) => {
+if(isDown){
+
+   e.currentTarget.scrollLeft = cursorXCoordinate - e.pageX
+  
+}
+}
+
+const mouseUp =(e:any) => {
+ e.preventDefault()
+   setIsDown(false)
+// if(e.currentTarget.scrollLeft > 160){
+//    e.scrollLeft = 310;
+//    setlastPosition(e.currentTarget.scrollWidth)
+// }
+}
+
+const mouseLeave = () => {
+   setIsDown(false)
+}
 
 
 
@@ -78,22 +84,23 @@ const KorporativStaticSlider1 = () => {
 
                </div>
                :
-                  <div id='mobile-slider' className='relative w-full h-48 overflow-y-hidden whitespace-nowrap'>
+                  <div onMouseUp={(e)=>mouseUp(e)} onMouseLeave={mouseLeave} onMouseMove={(e)=>mouseMove(e)} onMouseDown={(e)=>mouseDown(e)} id='mobile-slider' className='relative w-full h-48 overflow-y-hidden whitespace-nowrap cursor-grab select-none overflow-hidden'>
 
                      <div className='inline-block w-4/5 h-48'>
-                    <div className='flex w-full mr-5 h-48 justify-between items-end bg-gray-100' >
+                    <div className='flex w-full mr-5 h-48 justify-between items-end bg-gray-100 select-none' >
                     <div className='w-1/2 h-48  flex flex-col justify-between'>
                            <h2 className='text-sm font-bold m-6'>Məsafədən korporativ hesab</h2>
 
                            <i className="fa-solid fa-arrow-right text-2xl hover:text-blue-700 hover:cursor-pointer m-6"></i>
                         </div>
-                        <img className='object-contain h-4/5 ' src={process.env.PUBLIC_URL + 'images/korporativ/onlayn_hesab_ac.png'} alt="" />
+                      
+                        <img className='object-contain h-full select-none' src={process.env.PUBLIC_URL + 'images/korporativ/onlayn_hesab_ac.png'} alt="" />
 
                     </div>
                      </div>
 
                    <div className='inline-block w-4/5 h-48'>
-                   <div className='flex w-full h-48 justify-between items-end bg-blue-100 '>
+                   <div className='flex w-full h-48 justify-between items-end bg-blue-100 select-none'>
                         <div className='w-1/2 h-48  flex flex-col justify-between'>
 
                            <h2 className='text-sm font-bold m-6'>InternetBank</h2>
@@ -101,7 +108,7 @@ const KorporativStaticSlider1 = () => {
                            <i className="fa-solid fa-arrow-right text-2xl hover:text-blue-700 hover:cursor-pointer m-6"></i>
                         </div>
 
-                        <img className='object-contain h-4/5 ' src={process.env.PUBLIC_URL + 'images/korporativ/laptop_man-01.png'} alt="" />
+                        <img className='object-contain h-full select-none' src={process.env.PUBLIC_URL + 'images/korporativ/laptop_man-01.png'} alt="" />
 
 
 

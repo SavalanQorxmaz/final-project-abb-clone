@@ -1,6 +1,7 @@
 @import './components/header.scss';
 @import './components/search-bar.scss';
 @import './pages/ferdi.scss';
+@import './pages/page-sections/korporativ-kartlar.scss';
 
 
 * {
@@ -9,6 +10,7 @@
     text-decoration: none;
     list-style-type: none;
     user-select: none;
+    scroll-behavior: smooth;
 }
 
 .my-container {

@@ -92,6 +92,7 @@ const showClientTypesF = () => {
           <Link to={'/'}>Fərdi</Link></div>
       <div onClick={()=>{
         dispatch(selectedLink('korporativ'))
+        console.log('ferdi')
         }} 
         className = {(selectedL === 'korporativ') ? 'mobile-client-type-others-selected' : ''}>
           <Link to={'/korporativ'}>Korporativ</Link></div>

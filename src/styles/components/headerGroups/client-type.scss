@@ -20,6 +20,7 @@
 
     .mobile-client-type-others {
         position: absolute;
+        z-index: 16;
         top: 60px;
         background-color: white;
         width: 150px;
@@ -40,14 +41,27 @@
         & > *:not(:first-child) {
             @include all-types;
             position: relative;
+            padding: 0;
         z-index: 16;
+        & >* {
+            background-color: white;
+            display: block;
+            width: 100%;
+            height: 100%;
+            padding: 8px;
             &:hover {
-                background-color: rgb(91, 109, 109);
+                background-color: rgb(211, 221, 221);
             }
+        }
+            
         }
 
         .mobile-client-type-others-selected {
-            background-color: rgba(219, 218, 226, 0.822);
+
+            & > * {
+
+                background-color: rgb(242, 246, 250);
+            }
         }
 
    
@@ -60,6 +74,7 @@
         height: 100%;
         top: 0;
         left: 0;
+        z-index: 14;
        }
 
    
