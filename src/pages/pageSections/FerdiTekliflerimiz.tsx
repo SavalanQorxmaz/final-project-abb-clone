@@ -8,7 +8,7 @@ const FerdiTekliflerimiz = () => {
 
 <h2 className='text-4xl font-bold mb-16'>Təkliflərimiz</h2>
 
-<div className='flex mobile:flex-col mobile:items-center'>
+<div className='flex justify-center mobile:flex-col mobile:items-center'>
     <div className="max-w-sm rounded overflow-hidden shadow-lg flex flex-col justify-around">
 <img className="w-full" src={process.env.PUBLIC_URL + '/images/tekliflerimiz/tekliflerimiz-1.webp'} alt="Sunset in the mountains"/>
 <div className="px-6 py-4">

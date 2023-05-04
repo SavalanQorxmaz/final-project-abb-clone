@@ -10,10 +10,10 @@ const Footer = () => {
     const screenW = useSelector(selectScreenW)
 
   return (
-    <div className='footer border-t-2 border-gray-100'>
-        <div className='footer-top-back my-5'>
+    <div className='footer border-t-2 border-gray-100 mt-20'>
+        <div className='footer-top-back '>
             <div className='my-container'>
-                <div className='footer-top'>
+                <div className='footer-top py-5'>
             {
                 screenW === 'web' ?
                 <div className='flex justify-between'>
@@ -37,7 +37,7 @@ const Footer = () => {
             </div>
         </div>
      
-                        <div className='footer-bottom-back my-10 bg-neutral-100'>
+                        <div className='footer-bottom-back bg-neutral-100 pt-10'>
                         
                         <div className='footer-bottom'>
                             {

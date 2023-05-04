@@ -84,7 +84,7 @@ const mouseLeave = () => {
 
                </div>
                :
-                  <div onMouseUp={(e)=>mouseUp(e)} onMouseLeave={mouseLeave} onMouseMove={(e)=>mouseMove(e)} onMouseDown={(e)=>mouseDown(e)} id='mobile-slider' className='relative w-full h-48 overflow-y-hidden whitespace-nowrap cursor-grab select-none overflow-hidden'>
+                  <div onMouseUp={(e)=>mouseUp(e)} onMouseLeave={mouseLeave} onMouseMove={(e)=>mouseMove(e)} onMouseDown={(e)=>mouseDown(e)} id='mobile-slider' className='relative w-full h-48 overflow-y-hidden whitespace-nowrap cursor-grab select-none overflow-hidden mt-20'>
 
                      <div className='inline-block w-4/5 h-48'>
                     <div className='flex w-full mr-5 h-48 justify-between items-end bg-gray-100 select-none' >

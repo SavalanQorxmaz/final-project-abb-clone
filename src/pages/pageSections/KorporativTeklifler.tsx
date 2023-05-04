@@ -5,14 +5,7 @@ const KorporativTeklifler = () => {
 
     const [currentPosition, setCurrentPosition] = useState(0)
 
-const scrollLeftF = (e:any) => {
 
-    console.log(e.currentTarget.scrollWidth)
-    console.log(e.currentTarget.offsetWidth)
-
-
-
-}
 
 function moveRightF(e:any){
     if(currentPosition + e.currentTarget.parentNode.parentNode.parentNode.children[1].offsetWidth > e.currentTarget.parentNode.parentNode.parentNode.children[1].scrollWidth - e.currentTarget.parentNode.parentNode.parentNode.children[1].offsetWidth){
@@ -23,7 +16,7 @@ function moveRightF(e:any){
         
         setCurrentPosition(e.currentTarget.parentNode.parentNode.parentNode.children[1].scrollLeft)
        
-    console.log(e.currentTarget.parentNode.parentNode.parentNode.children[1].scrollLeft)
+   
     
 
 }
@@ -36,7 +29,7 @@ function moveLeftF (e:any){
     else {e.currentTarget.parentNode.parentNode.parentNode.children[1].scrollLeft = currentPosition - e.currentTarget.parentNode.parentNode.parentNode.children[1].offsetWidth *2/3}
 
     setCurrentPosition(e.currentTarget.parentNode.parentNode.parentNode.children[1].scrollLeft)
-        console.log(currentPosition)
+        
     
 }
 
@@ -59,7 +52,7 @@ function moveLeftF (e:any){
 
                 </div>
 
-                <div onScroll={(e)=>scrollLeftF(e)} id='slider-container' className='overflow-hidden whitespace-nowrap'>
+                <div id='slider-container' className='overflow-hidden whitespace-nowrap'>
                     <div className="inline-block min-w-sm w-96 rounded overflow-hidden shadow-lg">
                         <img className="w-full" src={process.env.PUBLIC_URL + '/images/tekliflerimiz/tekliflerimiz-1.webp'} alt="Sunset in the mountains" />
                         <div className="px-6 py-4">
