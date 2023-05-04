@@ -8,6 +8,7 @@ import Ferdi from './pages/mainHeaderPages/Ferdi';
 import Korporotiv from './pages/mainHeaderPages/Korporotiv';
 import Kob from './pages/mainHeaderPages/Kob';
 import { useEffect } from 'react';
+import TestSlider from './components/TestSlider';
 
 function App() {
 
@@ -37,6 +38,7 @@ useEffect(()=>{
    <Route path='/' element = {<Ferdi/>}/>
     <Route path='/korporativ' element = {<Korporotiv/>}/>
     <Route path='/kob' element = {<Kob/>}/>
+    <Route path='/test' element = {<TestSlider/>}/>
    </Routes>
 
 <Footer/>
