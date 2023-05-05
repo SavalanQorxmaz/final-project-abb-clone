@@ -27,16 +27,34 @@ const Slider = () => {
   const [stepCount, setStepCount] = useState(0)
   const [lastSlideChangeTime, setLastSlideChangeTime] = useState(Date.now)
   
+  const requestRef = React.useRef<any>(0);
+    const previousTimeRef = React.useRef(Date.now());
+
+   
+      
+      React.useEffect(() => {
+        const animate = () => {
+            if (Date.now() - previousTimeRef.current > 8000) {
+              
+              setStepCount( stepCount + 1)
+              
+            previousTimeRef.current = Date.now();
+            }
+            requestRef.current = requestAnimationFrame(animate);
+          }
+        requestRef.current = requestAnimationFrame(animate);
+        return () => cancelAnimationFrame(requestRef.current);
+      }, []); 
     
   
-    function timerF(){
-      if (Date.now() - lastSlideChangeTime > 8000) {
-        setStepCount(stepCount + 1)
-        setLastSlideChangeTime(Date.now)
-    }
-    requestAnimationFrame(timerF) 
-    }
-    requestAnimationFrame(timerF) 
+    // function timerF(){
+    //   if (Date.now() - lastSlideChangeTime > 8000) {
+    //     setStepCount(stepCount + 1)
+    //     setLastSlideChangeTime(Date.now)
+    // }
+    // requestAnimationFrame(timerF) 
+    // }
+    // requestAnimationFrame(timerF) 
   
   
  useEffect(()=>{
@@ -183,22 +201,22 @@ const Slider = () => {
   </div>
   <div style={coverStyle}>
     <div onClick={()=>{
-        setLastSlideChangeTime(Date.now())
+        previousTimeRef.current = Date.now()
         setSlideDegree(0)
 
     }} style={coverButtonStyleF(0)}></div>
     <div onClick={()=>{
-        setLastSlideChangeTime(Date.now())
+         previousTimeRef.current = Date.now()
         setSlideDegree(-1)
 
     }} style={coverButtonStyleF(-1)}></div>
     <div onClick={()=>{
-        setLastSlideChangeTime(Date.now())
+         previousTimeRef.current = Date.now()
         setSlideDegree(-2)
 
     }} style={coverButtonStyleF(-2)}></div>
     <div onClick={()=>{
-        setLastSlideChangeTime(Date.now())
+         previousTimeRef.current = Date.now()
         setSlideDegree(-3)
 
     }} style={coverButtonStyleF(-3)}></div>
