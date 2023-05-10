@@ -12,6 +12,34 @@ const KobStaticSlider = () => {
     const [sliderChangerActive, setSliderChangerActive] = useState<'1' | '2'>('1')
     const slider = document.getElementById('slider')
 
+   //  const mouseUpF =(e:any) => {
+
+   //    setMouseDown(false)
+  
+   //  }
+  
+   //  const mouseMoveF =(e:any) => {
+   //    if(mouseDown){
+   //      e.currentTarget.scrollLeft += (mouseMoveRef.current - e.pageX) *2
+   //    }
+   //  }
+  
+   //  const moveRightF = ()=>{
+  
+   //    if(slider?.scrollLeft !== undefined && slider?.scrollLeft !== null){
+  
+   //      slider.scrollLeft = slider.offsetWidth
+   //      setActiveChanger('2')
+   //    }
+   //  }
+   //  const moveLeftF = ()=>{
+  
+   //    if(slider?.scrollLeft !== undefined && slider?.scrollLeft !== null){
+  
+   //      slider.scrollLeft = 0
+   //      setActiveChanger('1')
+   //    }
+   //  }
 
 
     const mouseDownF = (e:any) => {
@@ -23,7 +51,7 @@ const KobStaticSlider = () => {
 
     const mouseMoveF = (e:any) => {
        if(mouseDown){
-        e.currentTarget.scrollLeft = scrollPositionRef.current - mousePositionRef.current  + e.clientX 
+         e.currentTarget.scrollLeft += (scrollPositionRef.current - e.pageX) *2
     
        }
     }

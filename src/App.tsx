@@ -1,6 +1,6 @@
 import {Routes, Route} from 'react-router-dom'
-import {useDispatch} from 'react-redux'
-import { screenW, scrollTop} from './screenSlice';
+import {useDispatch,useSelector} from 'react-redux'
+import { screenW, scrollTop, selectScreenW, selectScrollTop} from './screenSlice';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import SearchBar from './components/SearchBar';
@@ -9,6 +9,7 @@ import Korporotiv from './pages/mainHeaderPages/Korporotiv';
 import Kob from './pages/mainHeaderPages/Kob';
 import { useEffect } from 'react';
 import TestSlider from './components/TestSlider';
+import BackToTop from './components/BackToTop';
 
 function App() {
 
@@ -26,10 +27,13 @@ useEffect(()=>{
   dispatch(screenW(window.innerWidth))
 },[])
 
+const scrollT = useSelector(selectScrollTop)
+
+
  
 
   return (
-    <div className="App">
+    <div id='app' className="App">
   
 <Header/>
 <SearchBar/>
@@ -42,6 +46,11 @@ useEffect(()=>{
    </Routes>
 
 <Footer/>
+
+{
+  scrollT > 1000 ? <BackToTop/> : ''
+}
+
 
     </div>
   );
