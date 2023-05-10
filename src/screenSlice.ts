@@ -19,12 +19,12 @@ const screenSlice = createSlice({
     if(actions.payload > 1000){
         state.screenW = 'web'
         // console.log(actions.payload)
-        console.log(state.screenW)
+        // console.log(state.screenW)
     }
     else{
        state.screenW = 'mobile'
       //  console.log(actions.payload)
-       console.log(state.screenW)
+      //  console.log(state.screenW)
   }
     
   },

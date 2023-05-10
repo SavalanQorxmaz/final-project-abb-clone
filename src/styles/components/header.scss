@@ -84,6 +84,8 @@ z-index: 11;
         
         @include headerDefault;
         background-color: rgb(255, 255, 255);
+        
+      border-top: 1px solid rgba(163, 160, 160, 0.253);
         .my-container {
 
             .header-bottom {
