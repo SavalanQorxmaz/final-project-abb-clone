@@ -1,5 +1,5 @@
 import React, { CSSProperties } from 'react'
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import ReactDOM from "react-dom/client";
 
 
@@ -20,6 +20,8 @@ const TestSlider = (props:any) => {
   const currentPositionRef = useRef(0)
   const [currentPosition, setCurrentPosition] = useState(0)
   const [selectedSlide, setSelectedSlide] = useState(0)
+  const frameWidthRef = useRef<any>()
+  const sliderWidthRef = useRef<any>()
 
   // oturulecek cardlarin sayini avtomatik teyin ede bilmek ucun
   // gelen datani bu state e oturmek lazimdir
@@ -101,6 +103,14 @@ const TestSlider = (props:any) => {
       setSelectedSlide(currentPositionRef.current)
     }
   }, [stepCount])
+
+// slider uzunlugunu mueyyen etmek ucun
+  useEffect(()=>{
+    if(frameWidthRef.current){
+      console.log(frameWidthRef.current.offsetWidth)
+      console.log(sliderWidthRef.current.offsetWidth)
+    }
+  }, [])
  
 
   const moveLeftF = (e: any) => {
@@ -142,11 +152,13 @@ const TestSlider = (props:any) => {
 
 
 
+
+
   return (
     <>
 
-      <div style={frameStyle}>
-        <div style={sliderStyle}>
+      <div  ref = {frameWidthRef} style={frameStyle}>
+        <div ref={sliderWidthRef} style={sliderStyle}>
 
           {
             cardData.map((item, index) => (
@@ -162,7 +174,7 @@ const TestSlider = (props:any) => {
         <div style={controllersContainerStyle}>
         {
             cardData.map((item, index) => (
-              <div onClick={movePointerF} id={`${index}`} style={index !== -selectedSlide ? pointerStyle : {...pointerStyle, backgroundColor: 'red'}}></div>
+              <div onClick={movePointerF} id={`${index}`} key={index} style={index !== -selectedSlide ? pointerStyle : {...pointerStyle, backgroundColor: 'red'}}></div>
             ))
           }
         </div>

@@ -47,15 +47,6 @@ const Slider = () => {
       }, []); 
     
   
-    // function timerF(){
-    //   if (Date.now() - lastSlideChangeTime > 8000) {
-    //     setStepCount(stepCount + 1)
-    //     setLastSlideChangeTime(Date.now)
-    // }
-    // requestAnimationFrame(timerF) 
-    // }
-    // requestAnimationFrame(timerF) 
-  
   
  useEffect(()=>{
    if(stepCount>0){
