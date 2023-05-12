@@ -1,6 +1,8 @@
 import React, { CSSProperties } from 'react'
 import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import ReactDOM from "react-dom/client";
+import { useSelector } from 'react-redux';
+import { selectScreenW } from '../screenSlice';
 
 
 // TEMPLATE CARD
@@ -22,6 +24,7 @@ const TestSlider = (props:any) => {
   const [selectedSlide, setSelectedSlide] = useState(0)
   const frameWidthRef = useRef<any>()
   const sliderWidthRef = useRef<any>()
+  const screenW = useSelector(selectScreenW)
 
   // oturulecek cardlarin sayini avtomatik teyin ede bilmek ucun
   // gelen datani bu state e oturmek lazimdir
@@ -92,14 +95,25 @@ const TestSlider = (props:any) => {
 
     if (stepCount > 0) {
       if (currentPositionRef.current > -cardData.length +1) {
-        currentPositionRef.current -= 1
+        if((100+currentPositionRef.current * 100 / cardData.length -100 / cardData.length ) > (frameWidthRef.current.offsetWidth*80/100 *100/sliderWidthRef.current.offsetWidth)){ currentPositionRef.current -= 1 
+          setCurrentPosition(currentPositionRef.current * 100 / cardData.length)
+            setSelectedSlide(currentPositionRef.current)
+        }
+        else {
+          setCurrentPosition(-100 + frameWidthRef.current.offsetWidth *80/100 /sliderWidthRef.current.offsetWidth *100)
+          
+          currentPositionRef.current = -cardData.length + 1
+          setSelectedSlide(currentPositionRef.current)
+        }
       }
+     
+     
       else {
         currentPositionRef.current = 0
-
+        setCurrentPosition(value => currentPositionRef.current * 100 / cardData.length)
       }
 
-      setCurrentPosition(value => currentPositionRef.current * 100 / cardData.length)
+     
       setSelectedSlide(currentPositionRef.current)
     }
   }, [stepCount])
@@ -109,6 +123,7 @@ const TestSlider = (props:any) => {
     if(frameWidthRef.current){
       console.log(frameWidthRef.current.offsetWidth)
       console.log(sliderWidthRef.current.offsetWidth)
+      console.log(document.documentElement.clientWidth)
     }
   }, [])
  
@@ -116,16 +131,37 @@ const TestSlider = (props:any) => {
   const moveLeftF = (e: any) => {
 
     previousTimeRef.current = Date.now();
-    currentPositionRef.current < 0 ? currentPositionRef.current += 1 : currentPositionRef.current = 0
+  
+    if(currentPositionRef.current < 0 ) {
+      if(currentPositionRef.current === -cardData.length + 1){
+        currentPositionRef.current  = -cardData.length +  Math.ceil(cardData.length/sliderWidthRef.current.offsetWidth/frameWidthRef.current.offsetWidth*80/100 )
+     }
+      else {
+        currentPositionRef.current += 1
+      }
+      setCurrentPosition(currentPositionRef.current * 100 / cardData.length)
+      setSelectedSlide(currentPositionRef.current)
+    }
+    else currentPositionRef.current = 0
     setCurrentPosition(currentPositionRef.current * 100 / cardData.length)
-    setSelectedSlide(currentPositionRef.current)
+      setSelectedSlide(currentPositionRef.current)
+    
   }
 
   const moveRightF = (e: any) => {
     previousTimeRef.current = Date.now();
-    currentPositionRef.current > -cardData.length+1 ? currentPositionRef.current -= 1 : currentPositionRef.current =-cardData.length+1
-    setCurrentPosition(currentPositionRef.current * 100 / cardData.length)
+    if((100+currentPositionRef.current * 100 / cardData.length -100 / cardData.length ) > (frameWidthRef.current.offsetWidth*80/100 *100/sliderWidthRef.current.offsetWidth)){ currentPositionRef.current -= 1 
+      setCurrentPosition(currentPositionRef.current * 100 / cardData.length)
+        setSelectedSlide(currentPositionRef.current)
+    }else {
+      setCurrentPosition(-100 + frameWidthRef.current.offsetWidth *80/100 /sliderWidthRef.current.offsetWidth *100)
+      
+      currentPositionRef.current = -cardData.length + 1
       setSelectedSlide(currentPositionRef.current)
+    }
+    console.log(100+currentPositionRef.current * 100 / cardData.length)
+    console.log(frameWidthRef.current.offsetWidth*80/100 *100/sliderWidthRef.current.offsetWidth)
+    
   }
 
   const moveStartF = () => {
@@ -138,8 +174,9 @@ const TestSlider = (props:any) => {
 
   const moveEndF = () => {
     previousTimeRef.current = Date.now();
+    setCurrentPosition(-100 + frameWidthRef.current.offsetWidth *80/100 /sliderWidthRef.current.offsetWidth *100)
+      
     currentPositionRef.current = -cardData.length + 1
-    setCurrentPosition(currentPositionRef.current * 100 / cardData.length)
     setSelectedSlide(currentPositionRef.current)
   }
 
