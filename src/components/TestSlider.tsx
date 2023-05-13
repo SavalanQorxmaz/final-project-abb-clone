@@ -7,7 +7,7 @@ import { selectScreenW } from '../screenSlice';
 
 // TEMPLATE CARD
 const Card = ()=>{
-  return <div className='inline-block w-96 h-full border-2 border-gray-950'>2inline block</div>
+  return <div style={{width: '300px'}} className='inline-block  h-full border-2 border-gray-950'>2inline block</div>
 }
 
 
@@ -25,7 +25,13 @@ const TestSlider = (props:any) => {
   const frameWidthRef = useRef<any>()
   const sliderWidthRef = useRef<any>()
   const screenW = useSelector(selectScreenW)
-
+  const [mouseDown, setMouseDown] =useState(false)
+  const mouseStartRef = useRef(0)
+  const [mouseMove, setMouseMove] = useState({
+    previousPoint: mouseStartRef.current,
+    nextPoint: mouseStartRef.current,
+    distanceNextToPrevious:0
+  })
   // oturulecek cardlarin sayini avtomatik teyin ede bilmek ucun
   // gelen datani bu state e oturmek lazimdir
   const [cardData, setCardData] = useState<any[]>([1,2,3,4,5,6,7,8,9,10])
@@ -41,11 +47,13 @@ const TestSlider = (props:any) => {
   const sliderStyle: CSSProperties = {
     whiteSpace: 'nowrap',
     height: '200px',
-    width: 'fit-content',
+    width: 'fit-content' ,
     margin: '50px 0px',
     backgroundColor: 'gold',
     transform: `translateX(${currentPosition}%)`,
-    transition: '1s'
+    transition: '1s',
+    
+    position: 'relative'
   }
 
   const controllersContainerStyle:CSSProperties = {
@@ -69,6 +77,16 @@ const TestSlider = (props:any) => {
     borderRadius: '50%',
     backgroundColor:'black',
     margin: '5px',
+  }
+
+  const coverStyle:CSSProperties = {
+    position: 'absolute',
+    top: '0px',
+    left: '0px',
+    right: '0px',
+    bottom: '0px',
+    backgroundColor: 'black',
+    opacity: '0.5'
   }
 
 
@@ -131,8 +149,8 @@ const TestSlider = (props:any) => {
     previousTimeRef.current = Date.now();
   
     if(currentPositionRef.current < 0 ) {
-      if(currentPositionRef.current === (-cardData.length + 1)){
-        currentPositionRef.current  = -cardData.length+1  +  Math.floor( frameWidthRef.current.offsetWidth*80/100 /(sliderWidthRef.current.offsetWidth /cardData.length))
+      if(currentPositionRef.current === (-cardData.length + 1) && (frameWidthRef.current.offsetWidth*80/100 >= sliderWidthRef.current.offsetWidth /cardData.length) ){
+        currentPositionRef.current  = -cardData.length + 1 +  Math.floor( frameWidthRef.current.offsetWidth*80/100 /(sliderWidthRef.current.offsetWidth /cardData.length))
         setCurrentPosition(currentPositionRef.current * 100 / cardData.length)
      }
       else {
@@ -198,6 +216,48 @@ const TestSlider = (props:any) => {
     }
   }
 
+  const mouseDownF = (e:any) => {
+    e.preventDefault()
+    setMouseDown(true)
+    mouseStartRef.current = e.pageX
+    setMouseMove({...mouseMove, previousPoint:e.pageX})
+  }
+
+  const mouseMoveF = (e:any) => {
+    e.preventDefault()
+    if(mouseDown){
+      setMouseMove({...mouseMove, nextPoint:e.pageX})
+      setCurrentPosition(currentPosition +(( mouseMove.nextPoint - mouseMove.previousPoint)/ sliderWidthRef.current.offsetWidth * 100))
+      
+    }
+  }
+
+ 
+
+  useEffect(()=>{
+    
+    previousTimeRef.current = Date.now();
+    
+    setMouseMove({...mouseMove, previousPoint:mouseMove.nextPoint})
+  },[mouseMove.nextPoint])
+
+  useEffect(()=>{
+    
+  },[mouseMove.previousPoint])
+
+  const mouseUpF =(e:any) => {
+    e.preventDefault()
+    setMouseDown(false)
+    if((sliderWidthRef.current.offsetWidth / cardData.length) /  (mouseMove.nextPoint - mouseStartRef.current) >2 ){
+currentPositionRef.current += Math.ceil((mouseMove.nextPoint - mouseStartRef.current) / (sliderWidthRef.current.offsetWidth / cardData.length))
+setCurrentPosition(currentPosition + Math.abs(Math.ceil((mouseMove.nextPoint - mouseStartRef.current) / (sliderWidthRef.current.offsetWidth / cardData.length)) * (sliderWidthRef.current.offsetWidth / cardData.length)))
+
+    }
+   
+    console.log((sliderWidthRef.current.offsetWidth / cardData.length) /  (mouseMove.nextPoint - mouseStartRef.current) )
+    console.log(Math.ceil((mouseMove.nextPoint - mouseStartRef.current) / (sliderWidthRef.current.offsetWidth / cardData.length)))
+  }
+
 
 
 
@@ -214,7 +274,8 @@ const TestSlider = (props:any) => {
             ))
           }
 
-                
+           
+          <div onMouseDown={mouseDownF} onMouseMove ={mouseMoveF} onMouseUp = {mouseUpF} style={coverStyle} >cover</div>     
      
         </div>
      
@@ -233,6 +294,7 @@ const TestSlider = (props:any) => {
             <i style={{fontSize: '30px', margin: '10px', cursor: 'pointer'}} onClick={moveRightF} className="fa-solid fa-caret-right"></i>
             <i style={{fontSize: '30px', margin: '10px', cursor: 'pointer'}} onClick={moveEndF} className="fa-solid fa-forward-fast"></i>
           </div>
+
       </div>
     </>
   )

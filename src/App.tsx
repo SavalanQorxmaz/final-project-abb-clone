@@ -10,10 +10,12 @@ import Kob from './pages/mainHeaderPages/Kob';
 import { useEffect } from 'react';
 import TestSlider from './components/TestSlider';
 import BackToTop from './components/BackToTop';
+import {selectDarkMode} from './slices/mainSlice'
 
 function App() {
 
   const dispatch = useDispatch()
+  const selectMode = useSelector(selectDarkMode)
 
 window.addEventListener('resize', () => {
   dispatch(screenW(window.innerWidth))
@@ -33,7 +35,7 @@ const scrollT = useSelector(selectScrollTop)
  
 
   return (
-    <div id='app' className="App">
+    <div id='app' className={selectMode? ' bg-black text-yellow-950' : 'bg-white text-black'}>
   
 <Header/>
 <SearchBar/>

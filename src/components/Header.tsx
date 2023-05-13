@@ -41,7 +41,8 @@ useEffect(() => {
   return (
    
     
-      (screenW === 'web') ?  <div className={scrollIsUp? 'header header-scroll': 'header header-default'}>
+      (screenW === 'web') ? 
+       <div className={scrollIsUp? 'header header-scroll': 'header header-default'}>
       <HeaderTop/>
       <HeaderMain/>
       <HeaderBottom/>

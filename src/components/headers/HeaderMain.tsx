@@ -58,7 +58,8 @@ const showClientTypesF = () => {
   return (
  <>
  {
-    screenW === 'web' ?  <div className='header-main-back'>
+    screenW === 'web' ? 
+     <div className='header-main-back'>
    <div className='header-main-fixed'>
    <div className='my-container'>
     <div className='header-main'>

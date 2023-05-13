@@ -4,13 +4,15 @@ import { selectScreenW } from '../screenSlice'
 import { Link } from 'react-router-dom'
 import abbIcon from '../icons/logo.svg'
 import internetBankingIcon  from '../icons/internet-banking-signin.svg'
+import { selectDarkMode } from '../slices/mainSlice'
 
 const Footer = () => {
 
     const screenW = useSelector(selectScreenW)
+    const selectMode = useSelector(selectDarkMode)
 
   return (
-    <div className='footer border-t-2 border-gray-100 mt-20'>
+    <div className='footer border-t-2 border-gray-100 mt-20' >
         <div className='footer-top-back '>
             <div className='my-container'>
                 <div className='footer-top py-5'>
@@ -37,7 +39,7 @@ const Footer = () => {
             </div>
         </div>
      
-                        <div className='footer-bottom-back bg-neutral-100 pt-10'>
+                        <div className={ selectMode ? 'footer-bottom-back bg-black text-white pt-10' : 'footer-bottom-back bg-neutral-100 text-black pt-10'}>
                         
                         <div className='footer-bottom'>
                             {
