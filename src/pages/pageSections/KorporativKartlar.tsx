@@ -90,10 +90,10 @@ function moveLeftF (e:any){
 
 
   return (
-  <div className='slider-frame'>
+  <div className='slider-frame '>
 
     <div className='slider-header'>
-      <h2 className='text-3xl font-bold'>Biznes kartları</h2>
+      <h2 className='text-3xl text-white font-bold '>Biznes kartları</h2>
 
       <div>
       <i onClick={moveLeftF} className="fa-solid fa-angle-left font-bold text-3xl p-3 bg-slate-300 mr-2 cursor-pointer"></i>

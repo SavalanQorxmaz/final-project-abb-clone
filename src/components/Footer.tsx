@@ -41,10 +41,10 @@ const Footer = () => {
      
                         <div className={ selectMode ? 'footer-bottom-back bg-black text-white pt-10' : 'footer-bottom-back bg-neutral-100 text-black pt-10'}>
                         
-                        <div className='footer-bottom'>
+                        <div className='footer-bottom text-sm'>
                             {
                         screenW === 'web' ?
-                        <div className='my-container'>
+                        <div className='main-container'>
                         <div className='grid grid-cols-6 gap-5 font-footer-font '>
                             <ul className='[&>*]:my-5'>
                                 <li><span className='text-lg font-semibold'>Fərdi</span></li>

@@ -11,7 +11,7 @@ const FerdiStaticSlider = () => {
     {
        (screenW === 'web') ?
           <div className='grid grid-cols-2 gap-4 h-96 overflow-hidden mt-20'>
-             <div className=' bg-gray-100 h-96 flex justify-end'>
+             <div className=' bg-gray-100  h-96 flex justify-end'>
                 <div className='max-w-2xl flex h-full items-end '>
                    <div className='w-1/2 h-full p-12  flex flex-col justify-between'>
                       <div className=''>
@@ -26,7 +26,7 @@ const FerdiStaticSlider = () => {
 
                 </div>
              </div>
-             <div className=' bg-blue-100 flex h-96 '>
+             <div className=' bg-blue-100 opacity-50 flex h-96 '>
                 <div className='max-w-2xl h-full flex items-end'>
                    <div className='w-1/2 h-full p-12  flex flex-col justify-between'>
                       <div className=''>

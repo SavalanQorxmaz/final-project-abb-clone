@@ -155,7 +155,7 @@ const Slider = () => {
   <div id='sliderFrame'  style={sliderFrameStyle}>
   
   <div style={sliderStyle}>
-    <div style={slideStyleF( 0, 'green')}>
+    <div style={slideStyleF( 0, '#D5D6E9')}>
     <div className='flex flex-col justify-evenly items-start'>
             <h2 className='text-black text-2xl text-bold font-black'>İlklərdən ol!</h2>
             <h3 className='text-xl font-semibold'>Apple Pay ilə ödənişlərini sadə, sürətli və təhlükəsiz apar</h3>
@@ -163,7 +163,7 @@ const Slider = () => {
            </div>
       <img style={{width: '40%'}} src={sliderImg[0]} alt="" />
     </div>
-    <div style={slideStyleF( 1,'red')}>
+    <div style={slideStyleF( 1,'#D5D6E9')}>
     <div className='flex flex-col justify-evenly items-start'>
             <h2 className='text-black text-2xl text-bold font-black'>İlklərdən ol!</h2>
             <h3 className='text-xl font-semibold'>Apple Pay ilə ödənişlərini sadə, sürətli və təhlükəsiz apar</h3>
@@ -171,7 +171,7 @@ const Slider = () => {
            </div>
       <img style={{width: '40%'}} src={sliderImg[1]} alt="" />
     </div>
-    <div style={slideStyleF( 2,'blue')}>
+    <div style={slideStyleF( 2,'#D5D6E9')}>
     <div className='flex flex-col justify-evenly items-start'>
             <h2 className='text-black text-2xl text-bold font-black'>İlklərdən ol!</h2>
             <h3 className='text-xl font-semibold'>Apple Pay ilə ödənişlərini sadə, sürətli və təhlükəsiz apar</h3>
@@ -179,7 +179,7 @@ const Slider = () => {
            </div>
       <img style={{width: '40%'}} src={sliderImg[2]} alt="" />
     </div>
-    <div style={slideStyleF( 3,'yellow')}>
+    <div style={slideStyleF( 3,'#D5D6E9')}>
     <div className='flex flex-col justify-evenly items-start'>
             <h2 className='text-black text-2xl text-bold font-black'>İlklərdən ol!</h2>
             <h3 className='text-xl font-semibold'>Apple Pay ilə ödənişlərini sadə, sürətli və təhlükəsiz apar</h3>
