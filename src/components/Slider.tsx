@@ -34,9 +34,9 @@ const Slider = () => {
       
       React.useEffect(() => {
         const animate = () => {
-            if (Date.now() - previousTimeRef.current > 8000) {
+            if (Date.now() - previousTimeRef.current > 5000) {
               
-              setStepCount( stepCount + 1)
+              setStepCount( stepCount=>stepCount + 1)
               
             previousTimeRef.current = Date.now();
             }
